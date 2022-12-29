@@ -141,27 +141,40 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w13 << <a href='w13.html'>Previous</a> <a href='w6.html'>Next</a> >> w6<br /><h1>w12</h1>
-<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/d4e58e893afd7b49f6ef1d8786b8b998/raw/421972f835d9a1316f0be1615e38ca9ecce8d03c/w12_hw_ex1.py">ex1<br/></a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"></pre>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
-user_input_temp = input("請輸入攝氏溫度值:")
-# 接著列出 user_input_temp 變數的資料型別
-print(type(user_input_temp))</pre>
-<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/d4e58e893afd7b49f6ef1d8786b8b998/raw/af93c4bbaad19b47bdc45325ec09d3e4e582275c/gistfile1.txt">ex2</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
-user_input_temp = input("請輸入攝氏溫度值:")
-# 接著列出 user_input_temp 變數的資料型別
-print(type(user_input_temp))
-# 到這裡已知利用 input() 函式將傳回字串, 接著以 float() 將字串轉為浮點數
-user_input_temp = float(user_input_temp)
-# 因為攝氏溫度乘上 9/5 之後再加上 32 就可以得到對應的華氏溫度值
-Fahrenheit = (user_input_temp*9/5) + 32
-# 到這裡, Fahrenheit 資料型別為浮點數, 而 user_input_temp 在第 8 行也轉為浮點數
-# 要將兩個浮點數與字串相加, 都必須透過 str() 轉為字串
-print("攝氏 " + str(user_input_temp) + " 度, 等於華氏 " + str(Fahrenheit) + " 度.")</pre>
-<p><br/><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/d4e58e893afd7b49f6ef1d8786b8b998/raw/421972f835d9a1316f0be1615e38ca9ecce8d03c/w12_hw_ex1.py"><br/></a>心得:努力的補上進度</p>
-<br />w13 << <a href='w13.html'>Previous</a> <a href='w6.html'>Next</a> >> w6</div>
+    <div id="tipue_search_content">w6 << <a href='w6.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>w5</h1>
+<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/ae5fc0824c0bf365631c1690808a7fe8/raw/6abe71e72560a86b246c16774966bde101d64f69/w5">密碼亂數</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 導入亂數模組
+import random
+# 導入字串模組
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+cp_num = ["0747", "0761"]
+cad_num = ["0773", "0786"]
+def gen_acc_pass(course, course_num):
+    stud_list =[]
+    for num in course_num:
+        url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + num + "&amp;column=True"
+        class_list = open(url).read().split("\n")[:-1]
+        stud_list += class_list
+        #print(stud_list)
+    for stud_num in stud_list:
+        password = password_generator(4, pass_string)
+        #print(password)
+        account = course + stud_num
+        #print(account)
+        print(stud_num + "\t" + account + "\t" + password)
+gen_acc_pass("cp", cp_num)
+gen_acc_pass("cad", cad_num)</pre>
+<p></p><br />w6 << <a href='w6.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
       <div class="container">

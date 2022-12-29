@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='w6.html'>w6</a><li class='has-children'><a href='w15.html'>w15</a><ul class='dropdown'><li><a href='w15-2.html'>w15-2</a></li></ul><li class='has-children'><a href='w14.html'>w14</a><ul class='dropdown'><li><a href='w14-2.html'>w14-2</a></li></ul><li><a href='w13.html'>w13</a><li><a href='w12.html'>w12</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='w15.html'>w15</a><ul class='dropdown'><li><a href='w15-2.html'>w15-2</a></li></ul><li class='has-children'><a href='w14.html'>w14</a><ul class='dropdown'><li><a href='w14-2.html'>w14-2</a></li></ul><li><a href='w13.html'>w13</a><li><a href='w12.html'>w12</a><li><a href='w6.html'>w6</a><li><a href='w5.html'>w5</a></li></ul><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,66 +141,61 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW << <a href='HW.html'>Previous</a> <a href='w15.html'>Next</a> >> w15<br /><h1>w6</h1>
-<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/610df129e2b095236cb79938528c44cf/raw/aae10221aa974939e10fd6cdb8618753a3b4fb07/w6">抽點程式</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 從 Brython 的 browser 模組導入 document 與 html 程式庫
-from browser import document, html
+    <div id="tipue_search_content">w12 << <a href='w12.html'>Previous</a> <a href='w5.html'>Next</a> >> w5<br /><h1>w6</h1>
+<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/3eae23b93e581e5ab5040c2553a6723e/raw/f230b4ed078d639e77103ca851e70c5c53770d2f/w6-1">抽點程式</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
+'''多行註解則可以透過三個單引號前後標註字串或文字段落內容, 
+也可以使用三個雙引號作為多行註解的標註
+'''
+# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
 import random
-
-# 利用 document 物件, 以索引 "brython_div1" 取得已經位於 html 網頁中 id="brython_div1" 的位置, 且對應到 brython_div1 變數
-brython_div1 = document["brython_div1"]
-# 可以用三個單引號或三個雙引號標註多行註解
-# 其中的 html 物件有許多建立 html 超文件內容的方法, 以下分別建立
-# BUTTON 按鈕, BR 跳行 (break), 以及 A 網站連結 (Anchor)
-# &lt;= 是 Brython 程式語言的特殊符號, 專用於將 html 超文件資料送給網頁對應變數
+cp1b = "0761"
+# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
+url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + cp1b + "&amp;column=True"
+# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
+# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
+# url 所屬的網站, 乃 69 中的一台虛擬主機 8/10ff-0-1-2, 並利用 Get 從教務主機取回課程註冊成員學號
+# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
+# 所對應到 data 的資料型別將會是數列
+data = open(url).read().split("\n")
+# 經過檢查 data 數列, 發現最後一個 element 為空字串, 因此利用 [:-1] 去掉數列的最後一個元素, -1 代表數列最後一個元素的索引
+#print(data[:-1])
+# 設定一個變數, 與修課成員學號數列對應
+stud = data[:-1]
+# 使用 random 模組中的 shuffle() 函式, 以隨機的方式排列 stud 數列內容
+random.shuffle(stud)
+# 設定 num 與 5 對應, 或將 5 整數值存入 num 變數所對應的記憶體位址
+num = 5
+# 利用 for 重複迴圈與 range() 變數, 列印出 (利用 print() 函式) 已經隨機排列次序的 stud 數列的最前面 num 個學號值
+for i in range(num):
+    print(stud[i])</pre>
+<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/3eae23b93e581e5ab5040c2553a6723e/raw/99473a210c2de36b3aba60df601e1e77e2eb9b8b/W6-2">1a成員名單</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+ 
+brython_div1 = document["brython_div2"]
 """
 brython_div1 &lt;= html.BUTTON("hello")
 brython_div1 &lt;= html.BR()
 brython_div1 &lt;= html.A("google", href="https://google.com")
 """
-try:
-    c = document.query["c"]
-except:
-    c = "1a"
-# 將 1b.txt 資料從 Github Pages 網頁中取下
-url = "https://mde.tw/studlist/2022fall/" + c + ".txt"
-# 利用 open() 開啟網頁, 利用 read() 讀取網頁內容
-# 然後利用 split() 方法, 利用跳行符號對資料進行切割, 切割後的資料結構為 list
-# list 資料結構以 [] 區隔, 表示資料為數列, 其起始的索引值為 0
+ 
+url = "https://mde.tw/studlist/2022fall/1a.txt"
 data = open(url).read().split("\n")
-# 將每一位學員的靜態網頁共同的網路連結部分設為字串, 且與 mdecp2022 變數對應
 mdecp2022 = "https://mdecp2022.github.io/site-"
-# 因為取下的資料第一筆為標題, 而最後一筆為空字串, 可以利用 Brython 的數列索引取值範圍將索引 0 與最後一個數列值去除
 data = data[1:-1]
-
-try:
-    num = document.query["num"]
-    random.shuffle(data)
-except:
-    pass
-
-# 利用 for 重複迴圈逐一取出 data 數列中的值, 然後以 \t, 也就是 tab 符號切割
-for i in data[:5]:
+for i in data:
     stud = i.split("\t")
-    # 第一欄位為學號
     stud_num = stud[0]
-    # 第二欄未為 github 帳號
     github_acc = stud[1]
     #print(stud_num, github_acc)
-    # 若沒有找到 github 帳號, 以學號作為帳號
     if github_acc == "":
         github_acc = stud_num
-    # 將靜態網頁共同連結的變數與各自的 github 帳號, 組成完整的各學員靜態網頁連結
     site = mdecp2022 + github_acc
-    # 利用 A 物件產生連結, 然後放入 id="brython_div1 所在的網頁位置
     link = html.A(stud_num, href=site)
     brython_div1 &lt;= link
-    # 每一筆資料列出後, 以 break 標註跳行
     brython_div1 &lt;= html.BR()</pre>
-<p></p>
-<div id="gtx-trans" style="position: absolute; left: -5px; top: 63.575px;">
-<div class="gtx-trans-icon"></div>
-</div><br />HW << <a href='HW.html'>Previous</a> <a href='w15.html'>Next</a> >> w15</div>
+<p>目前無法把抽5個人跟列出成員名單做結合</p>
+<br />w12 << <a href='w12.html'>Previous</a> <a href='w5.html'>Next</a> >> w5</div>
         
     <!-- footer -->
       <div class="container">
