@@ -1,65 +1,7 @@
 <h1>About</h1>
-<p>  <a href="https://github.com/mdecp2022/site-bw3323">倉儲連結</a> </p><h1>HW</h1>
-<h2>w6</h2>
-<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/610df129e2b095236cb79938528c44cf/raw/aae10221aa974939e10fd6cdb8618753a3b4fb07/w6">抽點程式</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 從 Brython 的 browser 模組導入 document 與 html 程式庫
-from browser import document, html
-import random
-
-# 利用 document 物件, 以索引 "brython_div1" 取得已經位於 html 網頁中 id="brython_div1" 的位置, 且對應到 brython_div1 變數
-brython_div1 = document["brython_div1"]
-# 可以用三個單引號或三個雙引號標註多行註解
-# 其中的 html 物件有許多建立 html 超文件內容的方法, 以下分別建立
-# BUTTON 按鈕, BR 跳行 (break), 以及 A 網站連結 (Anchor)
-# &lt;= 是 Brython 程式語言的特殊符號, 專用於將 html 超文件資料送給網頁對應變數
-"""
-brython_div1 &lt;= html.BUTTON("hello")
-brython_div1 &lt;= html.BR()
-brython_div1 &lt;= html.A("google", href="https://google.com")
-"""
-try:
-    c = document.query["c"]
-except:
-    c = "1a"
-# 將 1b.txt 資料從 Github Pages 網頁中取下
-url = "https://mde.tw/studlist/2022fall/" + c + ".txt"
-# 利用 open() 開啟網頁, 利用 read() 讀取網頁內容
-# 然後利用 split() 方法, 利用跳行符號對資料進行切割, 切割後的資料結構為 list
-# list 資料結構以 [] 區隔, 表示資料為數列, 其起始的索引值為 0
-data = open(url).read().split("\n")
-# 將每一位學員的靜態網頁共同的網路連結部分設為字串, 且與 mdecp2022 變數對應
-mdecp2022 = "https://mdecp2022.github.io/site-"
-# 因為取下的資料第一筆為標題, 而最後一筆為空字串, 可以利用 Brython 的數列索引取值範圍將索引 0 與最後一個數列值去除
-data = data[1:-1]
-
-try:
-    num = document.query["num"]
-    random.shuffle(data)
-except:
-    pass
-
-# 利用 for 重複迴圈逐一取出 data 數列中的值, 然後以 \t, 也就是 tab 符號切割
-for i in data[:5]:
-    stud = i.split("\t")
-    # 第一欄位為學號
-    stud_num = stud[0]
-    # 第二欄未為 github 帳號
-    github_acc = stud[1]
-    #print(stud_num, github_acc)
-    # 若沒有找到 github 帳號, 以學號作為帳號
-    if github_acc == "":
-        github_acc = stud_num
-    # 將靜態網頁共同連結的變數與各自的 github 帳號, 組成完整的各學員靜態網頁連結
-    site = mdecp2022 + github_acc
-    # 利用 A 物件產生連結, 然後放入 id="brython_div1 所在的網頁位置
-    link = html.A(stud_num, href=site)
-    brython_div1 &lt;= link
-    # 每一筆資料列出後, 以 break 標註跳行
-    brython_div1 &lt;= html.BR()</pre>
-<p></p>
-<div id="gtx-trans" style="position: absolute; left: -5px; top: 63.575px;">
-<div class="gtx-trans-icon"></div>
-</div><h2>w15</h2>
+<p>  <a href="https://github.com/mdecp2022/site-bw3323">倉儲連結</a> </p>
+<h1>HW</h1>
+<h2>w15</h2>
 <div><span></span>
 <div data-tid="messageBodyContainer">
 <div data-tid="messageBodyContent">
@@ -74,7 +16,7 @@ for i in data[:5]:
 </ol>
 <h3>w15-2</h3>
 <p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/50af421dbf7da3fd007a22331c620b41/raw/084bde4f59b425480a01f510a68c71e0cd5466a6/w15-2">綠色方塊<br/></a></p>
-<p><br/>終於用好了，雖然我用的方法很笨就是了</p>
+<p><br/>心得:終於用好了，雖然我用的方法很笨就是了</p>
 <p></p>
 <p></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 這個程式用於 demo 綠色方塊沿著特定網格路徑行走
@@ -255,7 +197,8 @@ for i in range(5):
 '''
 browser.timer.set_interval(game, 100)</pre>
 <p><br/><br/></p>
-<div></div><h2>w14</h2>
+<div></div>
+<h2>w14</h2>
 <h3>w14-2</h3>
 <!-- 
 在動態網站頁面中啟用 Brython 執行環境的用法, 請注意動態網站執行所在路徑
@@ -294,7 +237,8 @@ def get_input(env):
 # 讓使用者 click 後會經由瀏覽器中的 event 通知執行 get_input 函式
 document["btn1"].bind('click', get_input)
 </script>
-</p><h2>w13</h2>
+</p>
+<h2>w13</h2>
 <p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/7b4403593d37ee3fb42e199f3b05db7d/raw/5a0bffdf0af9c26d05b8d076c1f541fba33b14cf/w13_temp_ex1.py">溫度轉換程式</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
 f=c*9/5+32
@@ -316,7 +260,8 @@ print("你輸入的攝氏溫度:" + str(c) , "等於華氏溫度:" + str(c*9/5+3
 <p></p>
 <p></p>
 <p>心得:終於做出溫度轉換的程式了，逐漸了解該怎麼做了</p>
-<p></p><h2>w12</h2>
+<p></p>
+<h2>w12</h2>
 <p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/d4e58e893afd7b49f6ef1d8786b8b998/raw/421972f835d9a1316f0be1615e38ca9ecce8d03c/w12_hw_ex1.py">ex1<br/></a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"></pre>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
@@ -335,7 +280,66 @@ Fahrenheit = (user_input_temp*9/5) + 32
 # 到這裡, Fahrenheit 資料型別為浮點數, 而 user_input_temp 在第 8 行也轉為浮點數
 # 要將兩個浮點數與字串相加, 都必須透過 str() 轉為字串
 print("攝氏 " + str(user_input_temp) + " 度, 等於華氏 " + str(Fahrenheit) + " 度.")</pre>
-<p><br/><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/d4e58e893afd7b49f6ef1d8786b8b998/raw/421972f835d9a1316f0be1615e38ca9ecce8d03c/w12_hw_ex1.py"><br/></a>心得:努力的補上進度</p><h1>Brython</h1>
+<p><br/><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/d4e58e893afd7b49f6ef1d8786b8b998/raw/421972f835d9a1316f0be1615e38ca9ecce8d03c/w12_hw_ex1.py"><br/></a>心得:努力的補上進度</p>
+<h2>w6</h2>
+<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/3eae23b93e581e5ab5040c2553a6723e/raw/f230b4ed078d639e77103ca851e70c5c53770d2f/w6-1">抽點程式</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
+'''多行註解則可以透過三個單引號前後標註字串或文字段落內容, 
+也可以使用三個雙引號作為多行註解的標註
+'''
+# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
+import random
+cp1b = "0761"
+# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
+url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + cp1b + "&amp;column=True"
+# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
+# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
+# url 所屬的網站, 乃 69 中的一台虛擬主機 8/10ff-0-1-2, 並利用 Get 從教務主機取回課程註冊成員學號
+# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
+# 所對應到 data 的資料型別將會是數列
+data = open(url).read().split("\n")
+# 經過檢查 data 數列, 發現最後一個 element 為空字串, 因此利用 [:-1] 去掉數列的最後一個元素, -1 代表數列最後一個元素的索引
+#print(data[:-1])
+# 設定一個變數, 與修課成員學號數列對應
+stud = data[:-1]
+# 使用 random 模組中的 shuffle() 函式, 以隨機的方式排列 stud 數列內容
+random.shuffle(stud)
+# 設定 num 與 5 對應, 或將 5 整數值存入 num 變數所對應的記憶體位址
+num = 5
+# 利用 for 重複迴圈與 range() 變數, 列印出 (利用 print() 函式) 已經隨機排列次序的 stud 數列的最前面 num 個學號值
+for i in range(num):
+    print(stud[i])</pre>
+<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/3eae23b93e581e5ab5040c2553a6723e/raw/99473a210c2de36b3aba60df601e1e77e2eb9b8b/W6-2">1a成員名單</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+ 
+brython_div1 = document["brython_div2"]
+"""
+brython_div1 &lt;= html.BUTTON("hello")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.A("google", href="https://google.com")
+"""
+ 
+url = "https://mde.tw/studlist/2022fall/1a.txt"
+data = open(url).read().split("\n")
+mdecp2022 = "https://mdecp2022.github.io/site-"
+data = data[1:-1]
+for i in data:
+    stud = i.split("\t")
+    stud_num = stud[0]
+    github_acc = stud[1]
+    #print(stud_num, github_acc)
+    if github_acc == "":
+        github_acc = stud_num
+    site = mdecp2022 + github_acc
+    link = html.A(stud_num, href=site)
+    brython_div1 &lt;= link
+    brython_div1 &lt;= html.BR()</pre>
+<p>目前無法把抽5個人跟列出成員名單做結合</p>
+<h2>w5</h2>
+<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/ae5fc0824c0bf365631c1690808a7fe8/raw/6abe71e72560a86b246c16774966bde101d64f69/w5">密碼亂數</a></p>
+<div id="gtx-trans" style="position: absolute; left: -3px; top: 63.575px;">
+<div class="gtx-trans-icon"></div>
+</div><h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
@@ -614,7 +618,9 @@ doc["aitetris"].bind("click", aitetris.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
-<!-- editor2 結束 --><hr/>
-<div id="gtx-trans" style="position: absolute; left: -4px; top: 82.875px;">
+<!-- editor2 結束 --><hr/></div>
+</div>
+</div>
+<div id="gtx-trans" style="position: absolute; left: -8px; top: 5504.52px;">
 <div class="gtx-trans-icon"></div>
-</div></div></div></div>
+</div>
