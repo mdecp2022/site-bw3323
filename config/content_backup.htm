@@ -281,6 +281,7 @@ Fahrenheit = (user_input_temp*9/5) + 32
 # 要將兩個浮點數與字串相加, 都必須透過 str() 轉為字串
 print("攝氏 " + str(user_input_temp) + " 度, 等於華氏 " + str(Fahrenheit) + " 度.")</pre>
 <p><br/><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/d4e58e893afd7b49f6ef1d8786b8b998/raw/421972f835d9a1316f0be1615e38ca9ecce8d03c/w12_hw_ex1.py"><br/></a>心得:努力的補上進度</p>
+<h2>W10</h2>
 <h2>w6</h2>
 <p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/3eae23b93e581e5ab5040c2553a6723e/raw/f230b4ed078d639e77103ca851e70c5c53770d2f/w6-1">抽點程式</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
@@ -337,9 +338,39 @@ for i in data:
 <p>目前無法把抽5個人跟列出成員名單做結合</p>
 <h2>w5</h2>
 <p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/ae5fc0824c0bf365631c1690808a7fe8/raw/6abe71e72560a86b246c16774966bde101d64f69/w5">密碼亂數</a></p>
-<div id="gtx-trans" style="position: absolute; left: -3px; top: 63.575px;">
-<div class="gtx-trans-icon"></div>
-</div><h1>Brython</h1>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 導入亂數模組
+import random
+# 導入字串模組
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+cp_num = ["0747", "0761"]
+cad_num = ["0773", "0786"]
+def gen_acc_pass(course, course_num):
+    stud_list =[]
+    for num in course_num:
+        url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + num + "&amp;column=True"
+        class_list = open(url).read().split("\n")[:-1]
+        stud_list += class_list
+        #print(stud_list)
+    for stud_num in stud_list:
+        password = password_generator(4, pass_string)
+        #print(password)
+        account = course + stud_num
+        #print(account)
+        print(stud_num + "\t" + account + "\t" + password)
+gen_acc_pass("cp", cp_num)
+gen_acc_pass("cad", cad_num)</pre>
+<p></p>
+<h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
@@ -621,6 +652,6 @@ doc["aitetris"].bind("click", aitetris.do)
 <!-- editor2 結束 --><hr/></div>
 </div>
 </div>
-<div id="gtx-trans" style="position: absolute; left: -8px; top: 5504.52px;">
+<div id="gtx-trans" style="position: absolute; left: -4px; top: 4621.15px;">
 <div class="gtx-trans-icon"></div>
 </div>
