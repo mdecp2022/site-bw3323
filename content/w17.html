@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='w17.html'>w17</a><li class='has-children'><a href='w15.html'>w15</a><ul class='dropdown'><li><a href='w15-2.html'>w15-2</a></li></ul><li><a href='w14.html'>w14</a><li><a href='w13.html'>w13</a><li><a href='w12.html'>w12</a><li><a href='W10.html'>W10</a><li><a href='w6.html'>w6</a><li><a href='w5.html'>w5</a></li></ul><li><a href='學習心得.html'>學習心得</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='w17.html'>w17</a><ul class='dropdown'><li><a href='w17-2.html'>w17-2</a><li><a href='w17-1.html'>w17-1</a></li></ul><li class='has-children'><a href='w15.html'>w15</a><ul class='dropdown'><li><a href='w15-1.html'>w15-1</a></li></ul><li><a href='w14.html'>w14</a><li><a href='w13.html'>w13</a><li><a href='w12.html'>w12</a><li><a href='W10.html'>W10</a><li><a href='w6.html'>w6</a><li><a href='w5.html'>w5</a></li></ul><li><a href='學習心得.html'>學習心得</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,7 +141,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW << <a href='HW.html'>Previous</a> <a href='w15.html'>Next</a> >> w15<br /><h1>w17</h1>
+    <div id="tipue_search_content">HW << <a href='HW.html'>Previous</a> <a href='w17-2.html'>Next</a> >> w17-2<br /><h1>w17</h1>
 <p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/b55b12c6ef7f90d585e4c856f56155f8/raw/2b5adaf37bc0cd83172b2f942a6dc6154944fde2/w17">ex1</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
 s=開始值
@@ -153,10 +153,21 @@ e=10
 for i in range(s,e+1,1):
     o=o+i
 print("由"+str(s)+"加到"+str(e)+"等於"+str(o))</pre>
-<p></p>
-<div id="gtx-trans" style="position: absolute; left: -2px; top: 70.175px;">
-<div class="gtx-trans-icon"></div>
-</div><br />HW << <a href='HW.html'>Previous</a> <a href='w15.html'>Next</a> >> w15</div>
+<p><a href="https://mdecp2022.github.io/site-bw3323/content/Brython.html?src=https://gist.githubusercontent.com/bw3323/39eeae482c38cc01c5bb18923ec2297d/raw/1fd2882fc08df5e126fc1a52a140b1b453f4da06/w17-2">ex-2</a>(函式)</p>
+<p>筆記:只要將變樹名稱(sumto)打上需要的數字，就能用函式得到答案</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
+s=開始值
+e=結束值
+'''
+def sumto(s=1,e=10):
+    o=0
+    for i in range(s,e+1,1):
+        o=o+i
+    print("由"+str(s)+"加到"+str(e)+"等於"+str(o))
+sumto(1,100)
+sumto(1,5)
+sumto(1,10)</pre>
+<br />HW << <a href='HW.html'>Previous</a> <a href='w17-2.html'>Next</a> >> w17-2</div>
         
     <!-- footer -->
       <div class="container">
